@@ -8,9 +8,8 @@ public class HappyNumber {
     public boolean isHappy(int n) {
         Set<Integer> set = new HashSet<>();
         int digital;
-        while (!set.equals(n)) // checking for availability numbers
-        {
-            int count = 0;
+        while (set.add(n)){ //  change, it was an infinite loop and when it adds "n", if that number is set
+            int count = 0;              // it responds true and repeats the loop, and if already there, then false it over
             while (n > 0) {
                 digital = n % 10;
                 count += digital * digital;
@@ -21,8 +20,6 @@ public class HappyNumber {
                 return true;
             } else {
                 n = count;
-                System.out.println(n);
-                set.add(n); // add number in set
             }
         }
         return false;
