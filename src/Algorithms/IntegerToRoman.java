@@ -1,4 +1,7 @@
 package Algorithms;
+
+import java.util.ArrayList;
+
 public class IntegerToRoman {
     public String intToRoman(int num) {
         StringBuilder st = new StringBuilder();
@@ -48,4 +51,15 @@ public class IntegerToRoman {
         }
         return st.toString();
     }
+    public String intToRoman2 (int num){
+        int[] intNumbers = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        String[] romsNumbers = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        StringBuilder st = new StringBuilder();
+        for (int i = 0; num > 0; i++)
+            while (num >= intNumbers[i]) {
+                st.append(romsNumbers[i]);
+                num -= intNumbers[i];
+            }
+        return st.toString();
+        }
 }
